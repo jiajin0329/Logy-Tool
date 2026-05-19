@@ -23,6 +23,9 @@ namespace Logy.UnityCommonV01
         public bool isEnable { get; private set; }
 
         [field: SerializeField]
+        public bool preload { get; private set; }
+
+        [field: SerializeField]
         public AudioClip audioClip { get; private set; }
 
         [field: SerializeField]

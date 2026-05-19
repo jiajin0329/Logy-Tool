@@ -62,6 +62,9 @@ namespace Logy.UnityCommonV01
                         continue;
 
                     _listAudioClipData.Add(audioClipData);
+
+                    if (audioClipData.preload)
+                        audioClipData.audioClip.LoadAudioData();
                 }
 
                 _dictionaryListAudioClipData.Add(_key, _listAudioClipData.ToArray());
@@ -78,7 +81,7 @@ namespace Logy.UnityCommonV01
             if (!_dictionaryListAudioClipData.ContainsKey(_key))
                 return;
 
-            var _audioClipSetting = GetAudioClipData(_name);
+            var _audioClipSetting = RandomAudioClipData(_name);
 
             _playAudioSource.clip = _audioClipSetting.audioClip;
             _playAudioSource.volume = _audioClipSetting.volume;
@@ -113,12 +116,12 @@ namespace Logy.UnityCommonV01
             if (!_dictionaryListAudioClipData.ContainsKey(_key))
                 return;
 
-            var _audioClipData = GetAudioClipData(_name);
+            var _audioClipData = RandomAudioClipData(_name);
 
             _playOneShotAudioSource.PlayOneShot(_audioClipData.audioClip, _audioClipData.volume);
         }
 
-        private AudioClipData GetAudioClipData(AudioName _name)
+        private AudioClipData RandomAudioClipData(AudioName _name)
         {
             var _key = _name.ToString();
 
@@ -191,7 +194,7 @@ namespace Logy.UnityCommonV01
             if (_dictionaryCdTime.ContainsKey(_key))
                 return;
 
-            var _audioClipSetting = GetAudioClipData(_name);
+            var _audioClipSetting = RandomAudioClipData(_name);
 
             _playOneShotAudioSource.PlayOneShot(_audioClipSetting.audioClip, _audioClipSetting.volume);
             _dictionaryCdTime.Add(_key, _audioClipSetting.audioClip.length);
