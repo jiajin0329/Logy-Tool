@@ -1,9 +1,7 @@
 {
     "name": "Analytics",
     "rootNamespace": "",
-    "references": [
-        "GUID:9f9dfb43212c7bd43a443e8289fa2ed3"
-    ],
+    "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
