@@ -7,5 +7,8 @@ namespace Logy.UnityCommonV01
     {
         [ContextMenu(nameof(GetGoogleSheetDatas))]
         private void GetGoogleSheetDatas() => _GetGoogleSheetDatas();
+
+        [ContextMenu(nameof(GetCsvDatas))]
+        private void GetCsvDatas() => _GetCsvDatas();
     }
 }
